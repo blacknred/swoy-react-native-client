@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "swoy-native-client",
-    "slug": "swoy-native-client",
+    "name": "swoy-react-native-client",
+    "slug": "swoy-react-native-client",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

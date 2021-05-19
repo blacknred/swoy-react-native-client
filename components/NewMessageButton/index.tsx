@@ -11,11 +11,10 @@ import styles from "./styles";
 export default () => {
   const navigation = useNavigation();
   const colorScheme = useColorScheme();
-  const handleNavigate = () => navigation.navigate(Screen.Contacts);
 
   return (
     <View style={[styles.container, { backgroundColor: Colors[colorScheme].tint }]}>
-      <TouchableOpacity onPress={handleNavigate}>
+      <TouchableOpacity onPress={() => navigation.navigate(Screen.Contacts)}>
         <MaterialCommunityIcons name={'message-reply-text'} size={32} color={'white'} />
       </TouchableOpacity>
     </View>

@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, FlatList, ImageBackground } from 'react-native';
+import { FlatList, ImageBackground } from 'react-native';
 import { useRoute } from '@react-navigation/native';
-import ChatMessage from '../components/ChatMessage';
-import { View, Text } from '../components/Themed';
-import InputBox from '../components/InputBox';
-// @ts-ignore
-import bg from '../assets/images/splash.png';
-import Chats from '../api/chats';
+import ChatMessage from '../../components/ChatMessage';
+import { View, Text } from '../../components/Themed';
+import InputBox from '../../components/InputBox';
+import Chats from '../../api/chats.json';
+import styles from './styles';
 
 export default () => {
   const route = useRoute();
@@ -19,7 +18,7 @@ export default () => {
   )
 
   return (
-    <ImageBackground source={bg} style={styles.background}>
+    <ImageBackground source={require('../../assets/images/splash.png')} style={styles.background}>
       <FlatList
         renderItem={({ item }) => <ChatMessage message={item} />}
         keyExtractor={({ id }) => id}
@@ -32,14 +31,3 @@ export default () => {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  background: {
-    width: '100%',
-    height: '100%'
-  }
-});

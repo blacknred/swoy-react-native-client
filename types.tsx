@@ -1,17 +1,3 @@
-export enum Screen {
-  Root = "Root",
-  ChatRoom = "ChatRoom",
-  Contacts = "Contacts",
-  NotFound = "NotFound",
-}
-
-export enum RootTab {
-  Camera = 'Camera',
-  Chats = 'Chats',
-  Status = 'Status',
-  Calls = 'Calls',
-};
-
 export type RootStackParamList = {
   Root: undefined;
   ChatRoom: undefined;
@@ -39,6 +25,20 @@ export type TabParamList = {
 };
 
 //
+
+export enum Screen {
+  Root = "Root",
+  ChatRoom = "ChatRoom",
+  Contacts = "Contacts",
+  NotFound = "NotFound",
+}
+
+export enum RootTab {
+  Camera = 'Camera',
+  Chats = 'Chats',
+  Status = 'Status',
+  Calls = 'Calls',
+};
 
 export type User = {
   id: string;

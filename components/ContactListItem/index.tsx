@@ -4,7 +4,6 @@ import { useNavigation } from '@react-navigation/native';
 import { Screen, User } from "../../types";
 import { Text, View } from '../Themed';
 import styles from './styles';
-
 interface IContactListItemProps {
   user: User;
 }

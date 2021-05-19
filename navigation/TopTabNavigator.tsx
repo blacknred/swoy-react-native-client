@@ -4,10 +4,10 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { createStackNavigator } from '@react-navigation/stack';
 import { TopTabParamList, TabParamList, RootTab } from '../types';
 import useColorScheme from '../hooks/useColorScheme';
-import CameraScreen from '../screens/CameraScreen';
-import ChatsScreen from '../screens/ChatsScreen';
-import StatusScreen from '../screens/StatusScreen';
-import CallsScreen from '../screens/CallsScreen';
+import CameraScreen from '../screens/Camera';
+import ChatsScreen from '../screens/Chats';
+import StatusScreen from '../screens/Status';
+import CallsScreen from '../screens/Calls';
 import Colors from '../constants/Colors';
 import styles from './styles';
 

@@ -1,25 +1,28 @@
-import users from './users';
-import chats from './chats';
-import chatRooms from './chatRooms';
-import { User } from '../types';
+import users from "./users.json";
+import chats from "./chats.json";
+import chatRooms from "./chatRooms.json";
+import { User } from "../types";
 
-type UserMethodsArgs = {
-  id?: string,
-  name?: string
-}
-
-interface IUserMethods {
-  list: () => Promise<any>;
-  get: (args: UserMethodsArgs) => Promise<any>;
-  put: (args: UserMethodsArgs) => Promise<any>;
-}
-
-export function fetch(func: any, ms = 1000) {
-  return (t?: UserMethodsArgs) => new Promise(resolve => setTimeout(() => resolve(func(t)), ms));
-}
-
-export const Users: IUserMethods = {
-  list: fetch(() => users),
-  get: fetch(({ id, name }: UserMethodsArgs) => users.find(u => u.id === id || u.name === name)),
-  put: fetch((user: User) => users.push(user))
+type ApiMethodArgs = {
+  id?: string;
+  name?: string;
 };
+
+interface IApiMethods {
+  [key: string]: (args?: any) => Promise<any>;
+}
+
+export function delay(func: any, ms = 1000) {
+  return (t?: ApiMethodArgs) =>
+    new Promise((resolve) => setTimeout(() => resolve(func(t)), ms));
+}
+
+const api: IApiMethods = {
+  getUsers: delay(() => users),
+  getUser: delay(({ id, name = "" }: ApiMethodArgs) =>
+    users.find((u) => u.id === id || u.name.startsWith(name))
+  ),
+  createUser: delay((user: User) => users.push(user)),
+};
+
+export default api;
